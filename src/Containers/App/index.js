@@ -1,25 +1,42 @@
+import { useState } from "react";
 import DigitButtons from "../../Components/DigitButtons";
 function App() {
+
+  const [calc,setCalc] = useState("");
+  const [result,setResult] = useState("");
+  const ops = ['.','+','-','*','/'];
+
+  const updateCalc = (value) => {
+    if(ops.includes(value) && calc === '' || ops.includes(value) && ops.includes(calc.slice(-1))) {
+      return;
+    }
+    setCalc(calc + value);
+
+    if(!ops.includes(value)) {
+      setResult(eval(calc + value).toString())
+    }
+  }
+
   return (
     <div className="App">
       <div className="calculator">
 
         <div className="display">
-          <span>(0)</span>0
+           {result ? <span>({result})</span> : "" }{ calc || "0"}
         </div>
 
         <div className="operators">
-          <button>/</button>
-          <button>*</button>
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => updateCalc("/")}>/</button>
+          <button onClick={() => updateCalc("*")}>*</button>
+          <button onClick={() => updateCalc("+")}>+</button>
+          <button onClick={() => updateCalc("-")}>-</button>
           <button>DEL</button>
         </div>
 
         <div className="digits">
-          <DigitButtons />
-          <button>0</button>
-          <button>.</button>
+          <DigitButtons updateCalc={updateCalc}/>
+          <button onClick={() => updateCalc("0")}>0</button>
+          <button onClick={() => updateCalc(".")}>.</button>
           <button>=</button>
         </div>
 
