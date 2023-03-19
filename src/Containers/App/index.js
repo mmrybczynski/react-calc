@@ -29,6 +29,11 @@ function App() {
     setCalc(value);
   }
 
+  const celarAll = () => {
+    setCalc("");
+    setResult("");
+  }
+
   return (
     <div className="App">
       <div className="calculator">
@@ -42,6 +47,7 @@ function App() {
           <button onClick={() => updateCalc("*")}>*</button>
           <button onClick={() => updateCalc("+")}>+</button>
           <button onClick={() => updateCalc("-")}>-</button>
+          <button onClick={celarAll}>CE</button>
           <button onClick={deleteLastInput}>DEL</button>
         </div>
 
