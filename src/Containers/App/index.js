@@ -1,6 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-
+import DigitButtons from "../../Components/DigitButtons";
 function App() {
   return (
     <div className="App">
@@ -18,6 +16,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <DigitButtons />
     </div>
   );
 }
