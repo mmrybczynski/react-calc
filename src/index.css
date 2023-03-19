@@ -2,6 +2,7 @@
   --primary: #000397;
   --background: #f4f4f4;
   --text: #fff;
+  --clear-btn-back: #8b0000;
   --span-text: #c5c5c5;
   --operators: #aaa;
   --operators-hover: #eee;
@@ -54,6 +55,14 @@ button {
 }
 .operators {
   display: flex;
+}
+.operators .clear-button {
+  background-color: var(--clear-btn-back);
+  color: var(--text);
+}
+.operators .clear-button:hover {
+  background-color: var(--text);
+  color: var(--clear-btn-back);
 }
 .operators button {
   flex: 1 1 0%;

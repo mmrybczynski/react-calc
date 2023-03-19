@@ -47,8 +47,8 @@ function App() {
           <button onClick={() => updateCalc("*")}>*</button>
           <button onClick={() => updateCalc("+")}>+</button>
           <button onClick={() => updateCalc("-")}>-</button>
-          <button onClick={celarAll}>CE</button>
-          <button onClick={deleteLastInput}>DEL</button>
+          <button className="clear-button" onClick={celarAll}>CE</button>
+          <button className="clear-button" onClick={deleteLastInput}>DEL</button>
         </div>
 
         <div className="digits">
